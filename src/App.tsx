@@ -28,9 +28,6 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <p className="test-text">
-        I am adding this text to test HMR
-      </p>
     </>
   )
 }
