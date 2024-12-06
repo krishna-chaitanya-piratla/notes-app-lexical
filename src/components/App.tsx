@@ -1,13 +1,4 @@
-import { LexicalEditor, LexicalEditorProps, Editor } from "./Editor/Editor"
-
-const props: LexicalEditorProps = {
-  config: {
-    namespace: 'texteditor',
-    onError: (error:any) => {
-      console.log(error);
-    }
-  }
-}
+import { Editor } from "./Editor/Editor"
 
 function App() {
 
