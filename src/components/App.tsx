@@ -1,11 +1,19 @@
+import { LexicalEditor, LexicalEditorProps } from "./Editor/Editor"
+
+const props: LexicalEditorProps = {
+  config: {
+    namespace: 'texteditor',
+    onError: (error:any) => {
+      console.log(error);
+    }
+  }
+}
 
 function App() {
 
   return (
     <>
-      <p>
-        Hello World!
-      </p>
+      <LexicalEditor config={props.config}/>
     </>
   )
 }
