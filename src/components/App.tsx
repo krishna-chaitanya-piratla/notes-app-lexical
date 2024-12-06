@@ -1,4 +1,4 @@
-import { LexicalEditor, LexicalEditorProps } from "./Editor/Editor"
+import { LexicalEditor, LexicalEditorProps, Editor } from "./Editor/Editor"
 
 const props: LexicalEditorProps = {
   config: {
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <LexicalEditor config={props.config}/>
+      <Editor/>
     </>
   )
 }
