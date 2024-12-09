@@ -3,6 +3,19 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { StyledPlaceholder, StyledEditorWrapper } from "../../styles/Editor";
+import { HeadingNode, QuoteNode } from "@lexical/rich-text";
+import { ListNode, ListItemNode } from "@lexical/list";
+import { LinkNode } from "@lexical/link";
+import { CodeNode } from "@lexical/code";
+
+const EDITOR_NODES = [
+  HeadingNode,
+  QuoteNode,
+  ListNode,
+  ListItemNode,
+  LinkNode,
+  CodeNode
+]
 
 export type LexicalEditorProps = {
     config: Parameters<typeof LexicalComposer>['0']['initialConfig'];
@@ -60,6 +73,7 @@ export function Editor() {
             <LexicalEditor 
                 config={{
                     namespace: 'lexical-editor',
+                    nodes: EDITOR_NODES,
                     theme: lexicalEditorTheme,
                     onError: (error) => {
                         console.log(error);
