@@ -7,6 +7,8 @@ import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListNode, ListItemNode } from "@lexical/list";
 import { LinkNode } from "@lexical/link";
 import { CodeNode } from "@lexical/code";
+import { TRANSFORMERS } from "@lexical/markdown";
+import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 
 const EDITOR_NODES = [
   HeadingNode,
@@ -29,6 +31,7 @@ export function LexicalEditor(props: LexicalEditorProps) {
                 placeholder={<StyledPlaceholder>Start writing...</StyledPlaceholder>} 
                 ErrorBoundary={LexicalErrorBoundary}
             />
+            <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
         </LexicalComposer>
     );
 }
