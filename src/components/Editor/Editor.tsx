@@ -9,6 +9,7 @@ import { LinkNode } from "@lexical/link";
 import { CodeNode } from "@lexical/code";
 import { TRANSFORMERS } from "@lexical/markdown";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
+import { LocalStoragePlugin } from "./plugins/LocalStorage";
 
 const EDITOR_NODES = [
   HeadingNode,
@@ -31,6 +32,7 @@ export function LexicalEditor(props: LexicalEditorProps) {
                 placeholder={<StyledPlaceholder>Start writing...</StyledPlaceholder>} 
                 ErrorBoundary={LexicalErrorBoundary}
             />
+            <LocalStoragePlugin namespace={props.config.namespace} />
             <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
         </LexicalComposer>
     );
@@ -70,12 +72,16 @@ const lexicalEditorTheme = {
     },
   };
 
+
+const EDITOR_NAMESPACE = "my-notes"
 export function Editor() {
+  const content = localStorage.getItem(EDITOR_NAMESPACE);
     return (
         <StyledEditorWrapper id="editor-wrapper">
             <LexicalEditor 
                 config={{
-                    namespace: 'lexical-editor',
+                    namespace: EDITOR_NAMESPACE,
+                    editorState: content,
                     nodes: EDITOR_NODES,
                     theme: lexicalEditorTheme,
                     onError: (error) => {
