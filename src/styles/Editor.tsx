@@ -14,7 +14,9 @@ export const StyledEditorWrapper = styled.div`
     line-height: 1.5;
     color: #374151;
     width: 80%;
-    border: 1px solid black;
+    :focus-visible {
+        outline: none;
+    }
 
     p {
         margin-top: 0;
