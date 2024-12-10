@@ -2,7 +2,7 @@ import { LexicalComposer } from "@lexical/react/LexicalComposer"
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { StyledPlaceholder, StyledEditorWrapper } from "../../styles/Editor";
+import { StyledPlaceholder, StyledEditor, StyledEditorWrapper, StyledH1 } from "../../styles/Editor";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { ListNode, ListItemNode } from "@lexical/list";
 import { LinkNode } from "@lexical/link";
@@ -77,7 +77,11 @@ const EDITOR_NAMESPACE = "my-notes"
 export function Editor() {
   const content = localStorage.getItem(EDITOR_NAMESPACE);
     return (
-        <StyledEditorWrapper id="editor-wrapper">
+      <StyledEditorWrapper>
+        <div>
+        <StyledH1>Just Take Notes</StyledH1>
+        </div>
+        <StyledEditor id="editor-wrapper">
             <LexicalEditor 
                 config={{
                     namespace: EDITOR_NAMESPACE,
@@ -89,6 +93,7 @@ export function Editor() {
                     }
                 }}
             />
-        </StyledEditorWrapper>
+        </StyledEditor>
+      </StyledEditorWrapper>
     );
 }
