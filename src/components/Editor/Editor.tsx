@@ -10,6 +10,8 @@ import { CodeNode } from "@lexical/code";
 import { TRANSFORMERS } from "@lexical/markdown";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import { LocalStoragePlugin } from "./plugins/LocalStorage";
+import { ActionsPlugin } from "./plugins/Actions";
+import {HistoryPlugin} from "@lexical/react/LexicalHistoryPlugin";
 
 const EDITOR_NODES = [
   HeadingNode,
@@ -32,8 +34,10 @@ export function LexicalEditor(props: LexicalEditorProps) {
                 placeholder={<StyledPlaceholder>Start writing...</StyledPlaceholder>} 
                 ErrorBoundary={LexicalErrorBoundary}
             />
+            <HistoryPlugin />
             <LocalStoragePlugin namespace={props.config.namespace} />
             <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+            <ActionsPlugin />
         </LexicalComposer>
     );
 }

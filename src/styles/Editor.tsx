@@ -46,3 +46,35 @@ export const StyledEditor = styled.div`
     }
 
 `;
+
+
+
+
+export const StyledActionButton = styled.button`
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #f1f5f9; /* Default slate-100 */
+  color: #1f2937; /* Default slate-900 */
+
+  &:disabled {
+    background-color: #f8fafc; /* Slate-50 */
+    color: #94a3b8; /* Slate-400 */
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    background-color: #e2e8f0; /* Slate-200 */
+  }
+
+  &:focus-visible {
+    outline: 2px solid #64748b; /* Slate-500 */
+    outline-offset: 2px;
+  }
+`;
