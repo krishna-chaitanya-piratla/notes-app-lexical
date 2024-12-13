@@ -1,5 +1,5 @@
-import { StyledAppWrapper, StyledH1 } from "../styles/Global"
-import { Editor } from "./Editor/Editor"
+import { StyledAppWrapper, StyledH1 } from "./styles/Global"
+import { Editor } from "./components/Editor/Editor"
 
 function App() {
 
