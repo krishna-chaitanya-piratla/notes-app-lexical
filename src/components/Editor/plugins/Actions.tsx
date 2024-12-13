@@ -165,7 +165,6 @@ export function ActionsPlugin() {
           <ActionButton
             disabled={isEditorEmpty}
             onClick={() => {
-                console.log('Clearcommand dispatch called!');
               editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
             }}
           >
